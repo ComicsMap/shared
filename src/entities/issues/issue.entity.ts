@@ -43,7 +43,7 @@ export class Issue extends AuditableEntity {
 
   @Property({
     name: 'synopsis',
-    columnType: 'text',
+    type: 'text',
     nullable: true,
   })
   synopsis?: string;
