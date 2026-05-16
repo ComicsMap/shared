@@ -1,8 +1,10 @@
+import esbuildPluginTsc from 'esbuild-plugin-tsc';
 import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => ({
   entry: ['src/index.ts', 'src/constants/**/*.ts'],
   format: ['esm', 'cjs'],
+  esbuildPlugins: [esbuildPluginTsc({ force: true })],
   banner: ({ format }) =>
     format === 'cjs'
       ? { js: `Object.defineProperty(exports, '__esModule', { value: true });` }

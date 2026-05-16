@@ -87,5 +87,5 @@ export class User {
     type: 'timestamp with time zone',
     nullable: true,
   })
-  deletedAt?: Date;
+  deletedAt?: Opt<Date>;
 }

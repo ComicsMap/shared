@@ -35,6 +35,7 @@
     "@mikro-orm/cli": "^6.6.7",
     "@mikro-orm/migrations": "^6.6.7",
     "@types/node": "^25.8.0",
+    "esbuild-plugin-tsc": "^0.6.0",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",

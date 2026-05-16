@@ -61,7 +61,7 @@ export abstract class AuditableEntity {
     type: 'timestamp with time zone',
     nullable: true,
   })
-  deletedAt?: Date;
+  deletedAt?: Opt<Date>;
 
   @ManyToOne(() => User, {
     name: 'deleted_by',

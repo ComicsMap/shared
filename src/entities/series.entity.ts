@@ -26,7 +26,7 @@ export class Series extends AuditableEntity {
     columnType: 'smallint',
     nullable: true,
   })
-  startYear?: number;
+  startYear?: Opt<number>;
 
   @Property({
     persist: false,

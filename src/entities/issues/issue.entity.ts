@@ -46,7 +46,7 @@ export class Issue extends AuditableEntity {
     type: 'text',
     nullable: true,
   })
-  synopsis?: string;
+  synopsis?: Opt<string>;
 
   @Enum({
     name: 'publisher',
