@@ -6,4 +6,8 @@ export type CreateSessionResponse = z.infer<
   typeof Schemas.createSessionResponseSchema
 >;
 
+export type RetrieveSessionResponse = z.infer<
+  typeof Schemas.retrieveSessionResponseSchema
+>;
+
 export type DeleteSessionResponse = void;
