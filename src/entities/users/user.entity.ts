@@ -1,6 +1,8 @@
+import { UserRole } from '@/types';
 import * as Constants from '@constants/users.constants';
 import {
   Entity,
+  Enum,
   Filter,
   Index,
   type Opt,
@@ -85,6 +87,14 @@ export class User {
     nullable: true,
   })
   avatarUrl?: Opt<string>;
+
+  @Enum({
+    name: 'role',
+    items: () => UserRole,
+    nullable: false,
+    default: UserRole.User,
+  })
+  role!: UserRole;
 
   @Property({
     name: 'created_at',
