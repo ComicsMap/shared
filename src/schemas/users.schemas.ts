@@ -25,15 +25,8 @@ export const createUserDataSchema = z.object({
   email: z.email().describe('The email of the user'),
   password: z
     .string()
-    .min(Constants.PASSWORD_MIN_LENGTH)
+    .nonempty()
     .max(Constants.PASSWORD_MAX_LENGTH)
-    .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .regex(/[0-9]/, 'Password must contain at least one number')
-    .regex(
-      /[^A-Za-z0-9]/,
-      'Password must contain at least one special character',
-    )
     .describe('The password of the user'),
 });
 export const createUserResponseSchema = serializedUserSchema;
