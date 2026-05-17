@@ -1,4 +1,5 @@
 import esbuildPluginTsc from 'esbuild-plugin-tsc';
+import { copyFileSync } from 'node:fs';
 import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => ({
@@ -27,4 +28,8 @@ export default defineConfig((options) => ({
   target: 'esnext',
   treeshake: true,
   bundle: true,
+  onSuccess: () => {
+    copyFileSync('src/types/global.d.ts', 'dist/types/global.d.ts');
+    return Promise.resolve();
+  },
 }));

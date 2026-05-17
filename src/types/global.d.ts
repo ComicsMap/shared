@@ -3,3 +3,5 @@ declare global {
   type Optional<T> = T | undefined;
   type Nullish<T> = T | null | undefined;
 }
+
+export {};
