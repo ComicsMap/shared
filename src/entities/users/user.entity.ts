@@ -1,3 +1,4 @@
+import * as Types from '@/types/users.types';
 import * as Constants from '@constants/users.constants';
 import {
   Entity,
@@ -8,12 +9,6 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-
-export enum UserRole {
-  User = 'USER',
-  Admin = 'ADMIN',
-  Owner = 'OWNER',
-}
 
 @Entity({
   tableName: 'users',
@@ -95,11 +90,11 @@ export class User {
 
   @Enum({
     name: 'role',
-    items: () => UserRole,
+    items: () => Types.UserRole,
     nullable: false,
-    default: UserRole.User,
+    default: Types.UserRole.User,
   })
-  role!: Opt<UserRole>;
+  role!: Opt<Types.UserRole>;
 
   @Property({
     name: 'created_at',
