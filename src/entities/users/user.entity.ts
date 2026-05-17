@@ -91,6 +91,7 @@ export class User {
   @Enum({
     name: 'role',
     items: () => Types.UserRole,
+    nativeEnumName: 'user_role',
     nullable: false,
     default: Types.UserRole.User,
   })
