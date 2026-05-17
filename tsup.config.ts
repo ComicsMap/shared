@@ -7,6 +7,7 @@ export default defineConfig((options) => ({
     'src/entities/**/*.ts',
     'src/schemas/**/*.ts',
     'src/types/**/*.ts',
+    '!src/**/*.d.ts',
   ],
   format: ['esm', 'cjs'],
   esbuildPlugins: [esbuildPluginTsc({ force: true })],
