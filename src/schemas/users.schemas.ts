@@ -1,5 +1,5 @@
-import { UserRole } from '@/types/users.types';
 import * as Constants from '@constants/users.constants';
+import { UserRole } from '@entities/users/user.entity';
 import { z } from 'zod';
 
 export const userEntitySchema = z.object({
