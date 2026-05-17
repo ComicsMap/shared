@@ -12,11 +12,21 @@
       "import": "./dist/constants/*.mjs",
       "require": "./dist/constants/*.cjs",
       "types": "./dist/constants/*.d.ts"
+    },
+    "./entities/*": {
+      "import": "./dist/entities/*.mjs",
+      "require": "./dist/entities/*.cjs",
+      "types": "./dist/entities/*.d.ts"
+    },
+    "./schemas/*": {
+      "import": "./dist/schemas/*.mjs",
+      "require": "./dist/schemas/*.cjs",
+      "types": "./dist/schemas/*.d.ts"
+    },
+    "./types/*": {
+      "types": "./dist/types/*.d.ts"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -52,5 +62,8 @@
     "@mikro-orm/core": "^6.6.7",
     "@mikro-orm/postgresql": "^6.6.7",
     "zod": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

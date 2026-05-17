@@ -2,7 +2,12 @@ import esbuildPluginTsc from 'esbuild-plugin-tsc';
 import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => ({
-  entry: ['src/index.ts', 'src/constants/**/*.ts'],
+  entry: [
+    'src/constants/**/*.ts',
+    'src/entities/**/*.ts',
+    'src/schemas/**/*.ts',
+    'src/types/**/*.ts',
+  ],
   format: ['esm', 'cjs'],
   esbuildPlugins: [esbuildPluginTsc({ force: true })],
   banner: ({ format }) =>
