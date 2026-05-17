@@ -99,7 +99,7 @@ export class User {
     nullable: false,
     default: UserRole.User,
   })
-  role!: UserRole;
+  role!: Opt<UserRole>;
 
   @Property({
     name: 'created_at',
