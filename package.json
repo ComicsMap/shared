@@ -8,10 +8,20 @@
       "import": "./dist/constants/*.mjs",
       "require": "./dist/constants/*.cjs"
     },
+    "./entities": {
+      "types": "./dist/entities/index.d.ts",
+      "import": "./dist/entities/index.mjs",
+      "require": "./dist/entities/index.cjs"
+    },
     "./entities/*": {
       "types": "./dist/entities/*.d.ts",
       "import": "./dist/entities/*.mjs",
       "require": "./dist/entities/*.cjs"
+    },
+    "./schemas": {
+      "types": "./dist/schemas/index.d.ts",
+      "import": "./dist/schemas/index.mjs",
+      "require": "./dist/schemas/index.cjs"
     },
     "./schemas/*": {
       "types": "./dist/schemas/*.d.ts",
