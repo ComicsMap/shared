@@ -7,3 +7,6 @@ export const EMAIL_MAX_LENGTH = 320;
 
 export const PASSWORD_MIN_LENGTH = 4;
 export const PASSWORD_MAX_LENGTH = 72;
+
+export const GOOGLE_ID_MAX_LENGTH = 64;
+export const AVATAR_URL_MAX_LENGTH = 2048;

@@ -23,6 +23,10 @@ import {
   name: 'idx_users_email',
   properties: ['email'],
 })
+@Index({
+  name: 'idx_users_google_id',
+  properties: ['googleId'],
+})
 @Filter({
   name: 'notDeleted',
   cond: { deletedAt: null },
@@ -62,8 +66,25 @@ export class User {
   })
   email!: string;
 
-  @Property({ name: 'password', type: 'varchar', nullable: false })
-  password!: string;
+  @Property({ name: 'password', type: 'varchar', nullable: true })
+  password?: Opt<string>;
+
+  @Property({
+    name: 'google_id',
+    type: 'varchar',
+    length: Constants.GOOGLE_ID_MAX_LENGTH,
+    nullable: true,
+    unique: true,
+  })
+  googleId?: Opt<string>;
+
+  @Property({
+    name: 'avatar_url',
+    type: 'varchar',
+    length: Constants.AVATAR_URL_MAX_LENGTH,
+    nullable: true,
+  })
+  avatarUrl?: Opt<string>;
 
   @Property({
     name: 'created_at',
