@@ -1,5 +1,6 @@
 import * as Constants from '@constants/issues.constants';
 import { AuditableEntity } from '@entities/auditable.entity';
+import { Publisher } from '@entities/enums/publisher.enum';
 import { IssueLayout } from '@entities/issue-layout.entity';
 import { IssueContributor } from '@entities/issues/issue-contributor.entity';
 import { Series } from '@entities/series.entity';
@@ -15,11 +16,6 @@ import {
   Property,
   type Ref,
 } from '@mikro-orm/core';
-
-export enum Publisher {
-  Marvel = 'MARVEL',
-  DC = 'DC',
-}
 
 @Entity({
   tableName: 'issues',

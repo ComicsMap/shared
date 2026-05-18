@@ -1,4 +1,7 @@
 export * from '@entities/auditable.entity';
+export * from '@entities/enums/contributor-role.enum';
+export * from '@entities/enums/publisher.enum';
+export * from '@entities/enums/user-role.enum';
 export * from '@entities/issue-layout.entity';
 export * from '@entities/issues/cover.entity';
 export * from '@entities/issues/issue-contributor.entity';

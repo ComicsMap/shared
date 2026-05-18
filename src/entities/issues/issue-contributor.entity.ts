@@ -1,3 +1,4 @@
+import { ContributorRole } from '@entities/enums/contributor-role.enum';
 import { Cover } from '@entities/issues/cover.entity';
 import { Issue } from '@entities/issues/issue.entity';
 import { Person } from '@entities/person.entity';
@@ -13,12 +14,6 @@ import {
   ValidationError,
   type Ref,
 } from '@mikro-orm/core';
-
-export enum ContributorRole {
-  Writer = 'WRITER',
-  Artist = 'ARTIST',
-  CoverArtist = 'COVER_ARTIST',
-}
 
 @Entity({
   tableName: 'issue_contributors',

@@ -1,5 +1,5 @@
-import * as Types from '@/types/users.types';
 import * as Constants from '@constants/users.constants';
+import { UserRole } from '@entities/enums/user-role.enum';
 import {
   Entity,
   Enum,
@@ -90,12 +90,12 @@ export class User {
 
   @Enum({
     name: 'role',
-    items: () => Types.UserRole,
+    items: () => UserRole,
     nativeEnumName: 'user_role',
     nullable: false,
-    default: Types.UserRole.User,
+    default: UserRole.User,
   })
-  role!: Opt<Types.UserRole>;
+  role!: Opt<UserRole>;
 
   @Property({
     name: 'created_at',

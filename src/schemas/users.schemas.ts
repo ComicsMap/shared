@@ -1,5 +1,5 @@
-import * as Types from '@/types/users.types';
 import * as Constants from '@constants/users.constants';
+import { UserRole } from '@entities/enums/user-role.enum';
 import { z } from 'zod';
 
 export const userEntitySchema = z.object({
@@ -10,7 +10,7 @@ export const userEntitySchema = z.object({
   password: z.string().nullish().describe('The password of the user'),
   googleId: z.string().nullish().describe('The Google account id of the user'),
   avatarUrl: z.string().nullish().describe('The avatar URL of the user'),
-  role: z.enum(Types.UserRole).describe('The role of the user'),
+  role: z.enum(UserRole).describe('The role of the user'),
   createdAt: z.date().describe('The date when the user was created'),
   updatedAt: z.date().describe('The date when the user was last updated'),
   deletedAt: z.date().nullish().describe('The date when the user was deleted'),
