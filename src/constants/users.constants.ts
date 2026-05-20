@@ -1,4 +1,4 @@
-import { UserRole } from '@entities/index';
+import { UserRole } from '@entities/enums/user-role.enum';
 
 export const USERNAME_MIN_LENGTH = 3;
 export const USERNAME_MAX_LENGTH = 64;
