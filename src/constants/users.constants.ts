@@ -1,3 +1,5 @@
+import { UserRole } from '@entities/index';
+
 export const USERNAME_MIN_LENGTH = 3;
 export const USERNAME_MAX_LENGTH = 64;
 export const DISPLAY_NAME_MAX_LENGTH = 64;
@@ -10,3 +12,5 @@ export const PASSWORD_MAX_LENGTH = 72;
 
 export const GOOGLE_ID_MAX_LENGTH = 64;
 export const AVATAR_URL_MAX_LENGTH = 2048;
+
+export const ADMIN_ROLES = [UserRole.Admin, UserRole.Owner] as const;
