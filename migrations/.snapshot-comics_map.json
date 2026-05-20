@@ -22,6 +22,252 @@
           "enumItems": [],
           "mappedType": "uuid"
         },
+        "owner_uuid": {
+          "name": "owner_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": true,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        }
+      },
+      "name": "collections",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "owner_uuid"
+          ],
+          "composite": false,
+          "constraint": true,
+          "keyName": "collections_owner_uuid_unique",
+          "unique": true,
+          "primary": false
+        },
+        {
+          "columnNames": [
+            "uuid"
+          ],
+          "composite": false,
+          "constraint": false,
+          "keyName": "collections_pkey",
+          "unique": true,
+          "primary": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "collections_owner_uuid_foreign": {
+          "columnNames": [
+            "owner_uuid"
+          ],
+          "constraintName": "collections_owner_uuid_foreign",
+          "localTableName": "public.collections",
+          "referencedTableName": "public.users",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        }
+      },
+      "nativeEnums": {
+        "contributor_role": {
+          "name": "contributor_role",
+          "schema": "public",
+          "items": [
+            "WRITER",
+            "ARTIST",
+            "COVER_ARTIST"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "schema": "public",
+          "items": [
+            "MARVEL",
+            "DC"
+          ]
+        },
+        "user_role": {
+          "name": "user_role",
+          "schema": "public",
+          "items": [
+            "USER",
+            "ADMIN",
+            "OWNER"
+          ]
+        }
+      },
+      "comment": null
+    },
+    {
+      "columns": {
+        "collection_uuid": {
+          "name": "collection_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "issue_uuid": {
+          "name": "issue_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "added_at": {
+          "name": "added_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        }
+      },
+      "name": "collections_issues",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "collection_uuid",
+            "issue_uuid"
+          ],
+          "composite": true,
+          "constraint": false,
+          "keyName": "collections_issues_pkey",
+          "unique": true,
+          "primary": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "collections_issues_collection_uuid_foreign": {
+          "columnNames": [
+            "collection_uuid"
+          ],
+          "constraintName": "collections_issues_collection_uuid_foreign",
+          "localTableName": "public.collections_issues",
+          "referencedTableName": "public.collections",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        },
+        "collections_issues_issue_uuid_foreign": {
+          "columnNames": [
+            "issue_uuid"
+          ],
+          "constraintName": "collections_issues_issue_uuid_foreign",
+          "localTableName": "public.collections_issues",
+          "referencedTableName": "public.issues",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        }
+      },
+      "nativeEnums": {
+        "contributor_role": {
+          "name": "contributor_role",
+          "schema": "public",
+          "items": [
+            "WRITER",
+            "ARTIST",
+            "COVER_ARTIST"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "schema": "public",
+          "items": [
+            "MARVEL",
+            "DC"
+          ]
+        },
+        "user_role": {
+          "name": "user_role",
+          "schema": "public",
+          "items": [
+            "USER",
+            "ADMIN",
+            "OWNER"
+          ]
+        }
+      },
+      "comment": null
+    },
+    {
+      "columns": {
+        "uuid": {
+          "name": "uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": "gen_random_uuid()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
         "created_at": {
           "name": "created_at",
           "type": "timestamptz(6)",
@@ -231,6 +477,290 @@
           ],
           "updateRule": "cascade",
           "deleteRule": "set null"
+        }
+      },
+      "nativeEnums": {
+        "contributor_role": {
+          "name": "contributor_role",
+          "schema": "public",
+          "items": [
+            "WRITER",
+            "ARTIST",
+            "COVER_ARTIST"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "schema": "public",
+          "items": [
+            "MARVEL",
+            "DC"
+          ]
+        },
+        "user_role": {
+          "name": "user_role",
+          "schema": "public",
+          "items": [
+            "USER",
+            "ADMIN",
+            "OWNER"
+          ]
+        }
+      },
+      "comment": null
+    },
+    {
+      "columns": {
+        "uuid": {
+          "name": "uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": "gen_random_uuid()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "owner_uuid": {
+          "name": "owner_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(64)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 64,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "string"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        },
+        "deleted_at": {
+          "name": "deleted_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        }
+      },
+      "name": "custom_collections",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "uuid"
+          ],
+          "composite": false,
+          "constraint": false,
+          "keyName": "custom_collections_pkey",
+          "unique": true,
+          "primary": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "custom_collections_owner_uuid_foreign": {
+          "columnNames": [
+            "owner_uuid"
+          ],
+          "constraintName": "custom_collections_owner_uuid_foreign",
+          "localTableName": "public.custom_collections",
+          "referencedTableName": "public.users",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        }
+      },
+      "nativeEnums": {
+        "contributor_role": {
+          "name": "contributor_role",
+          "schema": "public",
+          "items": [
+            "WRITER",
+            "ARTIST",
+            "COVER_ARTIST"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "schema": "public",
+          "items": [
+            "MARVEL",
+            "DC"
+          ]
+        },
+        "user_role": {
+          "name": "user_role",
+          "schema": "public",
+          "items": [
+            "USER",
+            "ADMIN",
+            "OWNER"
+          ]
+        }
+      },
+      "comment": null
+    },
+    {
+      "columns": {
+        "custom_collection_uuid": {
+          "name": "custom_collection_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "issue_uuid": {
+          "name": "issue_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "added_at": {
+          "name": "added_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        }
+      },
+      "name": "custom_collections_issues",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "custom_collection_uuid",
+            "issue_uuid"
+          ],
+          "composite": true,
+          "constraint": false,
+          "keyName": "custom_collections_issues_pkey",
+          "unique": true,
+          "primary": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "custom_collections_issues_custom_collection_uuid_foreign": {
+          "columnNames": [
+            "custom_collection_uuid"
+          ],
+          "constraintName": "custom_collections_issues_custom_collection_uuid_foreign",
+          "localTableName": "public.custom_collections_issues",
+          "referencedTableName": "public.custom_collections",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        },
+        "custom_collections_issues_issue_uuid_foreign": {
+          "columnNames": [
+            "issue_uuid"
+          ],
+          "constraintName": "custom_collections_issues_issue_uuid_foreign",
+          "localTableName": "public.custom_collections_issues",
+          "referencedTableName": "public.issues",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
         }
       },
       "nativeEnums": {
@@ -1167,7 +1697,7 @@
       "checks": [
         {
           "name": "people_identity_check",
-          "columnName": "first_name",
+          "columnName": "pseudonym",
           "definition": "CHECK (((pseudonym IS NOT NULL) OR ((first_name IS NOT NULL) AND (last_name IS NOT NULL))))",
           "expression": "(pseudonym IS NOT NULL) OR ((first_name IS NOT NULL) AND (last_name IS NOT NULL))"
         }
@@ -1871,6 +2401,252 @@
       ],
       "checks": [],
       "foreignKeys": {},
+      "nativeEnums": {
+        "contributor_role": {
+          "name": "contributor_role",
+          "schema": "public",
+          "items": [
+            "WRITER",
+            "ARTIST",
+            "COVER_ARTIST"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "schema": "public",
+          "items": [
+            "MARVEL",
+            "DC"
+          ]
+        },
+        "user_role": {
+          "name": "user_role",
+          "schema": "public",
+          "items": [
+            "USER",
+            "ADMIN",
+            "OWNER"
+          ]
+        }
+      },
+      "comment": null
+    },
+    {
+      "columns": {
+        "uuid": {
+          "name": "uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": "gen_random_uuid()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "owner_uuid": {
+          "name": "owner_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": true,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        }
+      },
+      "name": "wishlists",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "owner_uuid"
+          ],
+          "composite": false,
+          "constraint": true,
+          "keyName": "wishlists_owner_uuid_unique",
+          "unique": true,
+          "primary": false
+        },
+        {
+          "columnNames": [
+            "uuid"
+          ],
+          "composite": false,
+          "constraint": false,
+          "keyName": "wishlists_pkey",
+          "unique": true,
+          "primary": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "wishlists_owner_uuid_foreign": {
+          "columnNames": [
+            "owner_uuid"
+          ],
+          "constraintName": "wishlists_owner_uuid_foreign",
+          "localTableName": "public.wishlists",
+          "referencedTableName": "public.users",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        }
+      },
+      "nativeEnums": {
+        "contributor_role": {
+          "name": "contributor_role",
+          "schema": "public",
+          "items": [
+            "WRITER",
+            "ARTIST",
+            "COVER_ARTIST"
+          ]
+        },
+        "publisher": {
+          "name": "publisher",
+          "schema": "public",
+          "items": [
+            "MARVEL",
+            "DC"
+          ]
+        },
+        "user_role": {
+          "name": "user_role",
+          "schema": "public",
+          "items": [
+            "USER",
+            "ADMIN",
+            "OWNER"
+          ]
+        }
+      },
+      "comment": null
+    },
+    {
+      "columns": {
+        "wishlist_uuid": {
+          "name": "wishlist_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "issue_uuid": {
+          "name": "issue_uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": true,
+          "nullable": false,
+          "unique": false,
+          "length": null,
+          "precision": null,
+          "scale": null,
+          "default": null,
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "uuid"
+        },
+        "added_at": {
+          "name": "added_at",
+          "type": "timestamptz(6)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "unique": false,
+          "length": 6,
+          "precision": null,
+          "scale": null,
+          "default": "now()",
+          "comment": null,
+          "enumItems": [],
+          "mappedType": "datetime"
+        }
+      },
+      "name": "wishlists_issues",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "wishlist_uuid",
+            "issue_uuid"
+          ],
+          "composite": true,
+          "constraint": false,
+          "keyName": "wishlists_issues_pkey",
+          "unique": true,
+          "primary": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "wishlists_issues_issue_uuid_foreign": {
+          "columnNames": [
+            "issue_uuid"
+          ],
+          "constraintName": "wishlists_issues_issue_uuid_foreign",
+          "localTableName": "public.wishlists_issues",
+          "referencedTableName": "public.issues",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        },
+        "wishlists_issues_wishlist_uuid_foreign": {
+          "columnNames": [
+            "wishlist_uuid"
+          ],
+          "constraintName": "wishlists_issues_wishlist_uuid_foreign",
+          "localTableName": "public.wishlists_issues",
+          "referencedTableName": "public.wishlists",
+          "referencedColumnNames": [
+            "uuid"
+          ],
+          "updateRule": "cascade",
+          "deleteRule": "cascade"
+        }
+      },
       "nativeEnums": {
         "contributor_role": {
           "name": "contributor_role",

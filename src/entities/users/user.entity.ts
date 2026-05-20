@@ -1,13 +1,20 @@
 import * as Constants from '@constants/users.constants';
 import { UserRole } from '@entities/enums/user-role.enum';
+import type { Collection } from '@entities/users/collections/collection.entity';
+import type { CustomCollection } from '@entities/users/collections/custom-collection.entity';
+import type { Wishlist } from '@entities/users/collections/wishlist.entity';
 import {
   Entity,
   Enum,
   Filter,
   Index,
+  OneToMany,
+  OneToOne,
+  Collection as OrmCollection,
   type Opt,
   PrimaryKey,
   Property,
+  type Ref,
 } from '@mikro-orm/core';
 
 @Entity({
@@ -120,4 +127,18 @@ export class User {
     nullable: true,
   })
   deletedAt?: Opt<Date>;
+
+  @OneToOne('Collection', (collection: Collection) => collection.owner, {
+    ref: true,
+  })
+  collection?: Ref<Collection>;
+
+  @OneToOne('Wishlist', (wishlist: Wishlist) => wishlist.owner, { ref: true })
+  wishlist?: Ref<Wishlist>;
+
+  @OneToMany(
+    'CustomCollection',
+    (collection: CustomCollection) => collection.owner,
+  )
+  readonly customCollections = new OrmCollection<CustomCollection>(this);
 }
