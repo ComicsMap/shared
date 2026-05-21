@@ -11,6 +11,8 @@ export const sessionSchema = z.object({
     .describe('Milliseconds until the session expires'),
 });
 
+/** Create Session Schemas */
+
 export const createSessionDataSchema = z.object({
   login: z.string().nonempty().describe('The username or email of the user'),
   password: z.string().nonempty().describe('The password of the user'),
@@ -20,5 +22,7 @@ export const createSessionDataSchema = z.object({
     .describe('Whether to keep the user signed in for a longer period'),
 });
 export const createSessionResponseSchema = sessionSchema;
+
+/** Retrieve Session Schemas */
 
 export const retrieveSessionResponseSchema = sessionSchema;

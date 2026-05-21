@@ -21,6 +21,8 @@ export const serializedUserSchema = userEntitySchema.omit({
   googleId: true,
 });
 
+/** Create User Schemas */
+
 export const createUserDataSchema = z.object({
   username: z
     .string()
