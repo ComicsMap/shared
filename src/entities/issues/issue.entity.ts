@@ -82,4 +82,11 @@ export class Issue extends AuditableEntity {
     nullable: false,
   })
   publishedAt!: Date;
+
+  @Property({
+    name: 'verified_at',
+    type: 'timestamp with time zone',
+    nullable: true,
+  })
+  verifiedAt?: Opt<Date>;
 }
