@@ -8,16 +8,6 @@
       "import": "./dist/constants/*.mjs",
       "require": "./dist/constants/*.cjs"
     },
-    "./entities": {
-      "types": "./dist/entities/index.d.ts",
-      "import": "./dist/entities/index.mjs",
-      "require": "./dist/entities/index.cjs"
-    },
-    "./entities/*": {
-      "types": "./dist/entities/*.d.ts",
-      "import": "./dist/entities/*.mjs",
-      "require": "./dist/entities/*.cjs"
-    },
     "./schemas": {
       "types": "./dist/schemas/index.d.ts",
       "import": "./dist/schemas/index.mjs",
@@ -42,15 +32,10 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "lint:fix": "eslint \"{src}/**/*.ts\" --fix",
-    "makemigrations": "mikro-orm migration:create",
-    "migrate": "mikro-orm migration:up",
-    "migrate:down": "mikro-orm migration:down",
     "prepare": "npm run build"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@mikro-orm/cli": "^6.6.7",
-    "@mikro-orm/migrations": "^6.6.7",
     "@types/node": "^25.8.0",
     "esbuild-plugin-tsc": "^0.6.0",
     "eslint": "^10.4.0",
@@ -66,8 +51,6 @@
     "typescript-eslint": "^8.59.3"
   },
   "peerDependencies": {
-    "@mikro-orm/core": "^6.6.7",
-    "@mikro-orm/postgresql": "^6.6.7",
     "zod": "^4.4.3"
   },
   "engines": {

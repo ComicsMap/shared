@@ -1,5 +1,5 @@
+import { UserRole } from '@/types/enums/user-role.enum';
 import * as Constants from '@constants/users.constants';
-import { UserRole } from '@entities/enums/user-role.enum';
 import { z } from 'zod';
 
 export const userEntitySchema = z.object({
